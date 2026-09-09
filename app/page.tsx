@@ -1,0 +1,7 @@
+import { sitePath } from '@/lib/site-path';
+import Reviews from './reviews';
+const media = sitePath('/assets/');
+const photo = (name: string) => media + name;
+export default function Home() {
+ return <main><section className="hero" style={{backgroundImage:`url(${photo('bec1dd_e38e3ca035e14549b3413f3b312bccc9~mv2.jpg')})`}}><h1>Welcome to Johnny's Donuts, the oldest<br className="desktop"/> family-run eatery in Dublin, making<br className="desktop"/> great donuts since 1969!</h1></section><section className="offerings"><h2><a href={sitePath("/menu")}>Our Offerings</a></h2><div className="offering-grid">{[['Classic','bec1dd_ca1105cef1a54395a1967df52f41b803~mv2.jpg','/menu#anchor1'],['Premium','bec1dd_93a89d3c3e9147f3a5d9feb9c57748a0~mv2.jpg','/menu#premium'],['Specialty','bec1dd_687bade4945a45a48295e25d89efab0a~mv2.jpg','/menu#premium'],['Coffee','bec1dd_e047ca4efa964e51817b80279dd21082~mv2.jpg',null]].map(([name,img,href])=><article key={name}><img src={photo(img!)} alt={name!}/>{href?<a href={sitePath(href)}>{name}</a>:<span>{name}</span>}</article>)}</div></section><section className="testimonial-images"><h2>Testimonials</h2><div><img src={sitePath("/assets/11062b_ae91ef80e269403bb9ad7f356a3af977~mv2.jpg")} alt="Playing with donuts"/><img src={sitePath("/assets/bec1dd_e1e3c54817854cd4bc2921cb552643fd~mv2.jpg")} alt="A happy kid enjoying donuts"/></div></section><Reviews/></main>
+}
