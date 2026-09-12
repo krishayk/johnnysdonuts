@@ -12,5 +12,5 @@ const items=[
 ['Cinnamon Rolls','Rolled to perfection with just the right amount of cinnamon then covered in glaze.','bec1dd_58425be9de8a43969a5fc7d63f8470f5~mv2.jpg'],
 ['Apple Fritters','Bits of apples and cinnamon mixed in the dough then cooked to a perfect crisp.','bec1dd_9928c9795b364228a7dcac3e110d885b~mv2.jpg'],
 ['Killer Donut','Jumbo sized yeast donut. Fun for birthdays or as a special treat!','bec1dd_54130cfb8279470aa76bb2a2b4c08d38~mv2.jpg']];
-function Cards({data}:{data:string[][]}){return <div className="menu-grid">{data.map(([name,desc,img])=><article key={name}><img src={sitePath('/assets/'+img)} alt={name}/><h3>{name}</h3><p>{desc}</p>{name==='French Crullers'&&<div className="sizes"><span>300 gr <b>$3</b></span><span>400 gr <b>$5</b></span></div>}</article>)}</div>}
+function Cards({data}:{data:string[][]}){return <div className="menu-grid">{data.map(([name,desc,img])=><article key={name} id={name.toLowerCase().replaceAll(/[^a-z0-9]+/g, "-")}><img src={sitePath('/assets/'+img)} alt={name}/><h3>{name}</h3><p>{desc}</p></article>)}</div>}
 export default function Menu(){return <main className="menu-page"><h1 id="anchor1">The Classics</h1><Cards data={items.slice(0,3)}/><h2 id="premium">Premium and Specialties</h2><Cards data={items.slice(3)}/></main>}
